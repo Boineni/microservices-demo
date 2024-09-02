@@ -186,7 +186,7 @@ public final class AdService {
         .putAll("clothing", tankTop)
         .putAll("accessories", watch)
         .putAll("footwear", loafers)
-        .putAll("hair", hairdryer)
+        .putAll("hair", dryer)
         .putAll("decor", candleHolder)
         .putAll("kitchen", bambooGlassJar, mug)
         .build();
