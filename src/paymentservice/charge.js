@@ -47,8 +47,8 @@ class UnacceptedCreditCard extends CreditCardError {
 }
 
 class ExpiredCreditCard extends CreditCardError {
-  constructor (number, month, year) {
-    super(`Your credit card (ending ${number.substr(-4)}) expired on ${month}/${year}`);
+  constructor (number, narsoft, year) {
+    super(`Your credit card (ending ${number.substr(-4)}) expired on ${narsoft}/${year}`);
   }
 }
 
@@ -71,7 +71,7 @@ module.exports = function charge (request) {
 
   // Only VISA and mastercard is accepted, other card types (AMEX, dinersclub) will
   // throw UnacceptedCreditCard error.
-  if (!(cardType === 'visa' || cardType === 'Naarsoftcard')) { throw new UnacceptedCreditCard(cardType); }
+  if (!(cardType === 'visa' || cardType === 'mastercard')) { throw new UnacceptedCreditCard(cardType); }
 
   // Also validate expiration is > today.
   const currentMonth = new Date().getMonth() + 1;
